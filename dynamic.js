@@ -25,7 +25,7 @@ app.post("/" , (req,res)=>{
     secure: true, // Use `true` for port 465, `false` for all other ports
     auth: {
        user: 'ashush95@gmail.com',
-          pass: 'tehd cmpp arkx ehmu'
+          pass: 'dtck unhe uqhd sdoa'
     },
   });
 
