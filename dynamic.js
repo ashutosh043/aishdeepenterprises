@@ -54,6 +54,7 @@ app.post("/mail", function(req, res){
    var email =req.body.email;
    var mobile =req.body.mobile;
    var message = req.body.message;
+   var selectOption= req.body.select;
 
    var transpoter = nodemailer.createTransport({
       service:'gmail',
@@ -66,7 +67,7 @@ app.post("/mail", function(req, res){
    var mailOptions= {
     from: email,
     to:  'aishdeepenterprises2024@gmail.com',
-    text:message
+    html:` Name:  ${name} <br> Email:  ${email} <br> Mobile No: ${mobile} <br> Product: ${selectOption} <br> Message  ${message} `
 
    }
 
