@@ -2,7 +2,8 @@ const express = require('express');
 const bodyparser= require('body-parser');
 const nodemailer = require("nodemailer");
 const port = 3000;
-const path = require('path')
+const path = require('path');
+const { measureMemory } = require('vm');
 const app = express();
 app.set('view engine','ejs')
 
@@ -48,7 +49,7 @@ app.get('*',(_,res)=>{
     res.render(`404`)
 })
 
-app.post("/send_mail", function(req, res){
+app.post("/mail", function(req, res){
    var name =req.body.username;
    var email =req.body.email;
    var mobile =req.body.mobile;
@@ -63,10 +64,10 @@ app.post("/send_mail", function(req, res){
    });
 
    var mailOptions= {
-      name: name,
-      email:email,
-      mobile:mobile,
-      message:message
+    from: email,
+    to:  'aishdeepenterprises2024@gmail.com',
+    text:message
+
    }
 
    transpoter.sendMail(mailOptions, function( error, info){
@@ -75,7 +76,7 @@ app.post("/send_mail", function(req, res){
     }
     else{
       console.log('Send Email' + info.response) ;
-      express.response.redirect('/')
+      res.redirect('/')
     }
 
    })
