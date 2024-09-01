@@ -1,34 +1,38 @@
-const http = require('http')
-const nodemailer = require("nodemailer")
+const contactForm =document.querySelector('.form-contact');
+let name =document.querySelector('#name');
+let email =document.querySelector('#email');
+let mobileNumber = document.querySelector('#mobile');
 
-const server =  http.createServer((req, res) => {
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  port: 465,
-  secure: true, // Use `true` for port 465, `false` for all other ports
-  auth: {
-     user: 'ashush95@gmail.com',
-        pass: 'tehd cmpp arkx ehmu'
-  },
-});
+let message =document.querySelector('#message');
 
-// async..await is not allowed in global scope, must use a wrapper
-async function main() {
-  // send mail with defined transport object
-  const info = await transporter.sendMail({
-    from: '"Ashutosh Kumar 👻" <ashusah95@gmail.com>', // sender address
-    to: "ashusah95@gmail.com", // list of receiver
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  });
 
-  console.log("Message sent: %s", info.messageId);
-  // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
-  resizeBy.json(info)
-}
+contactForm.addEventListener('submit', (e)=>{
+   e.preventDefault();
 
-main().catch(console.error);
+   let formData= {
+       name: name.value,
+       email: email.value,
+       mobile: mobileNumber.value,
+       message:message.value
+   }
+  
 
-});
-server.listen(3000)
+   let xhr = new XMLHttpRequest();
+   xhr.open('POST', '/');
+   xhr.setRequestHeader('content-type', 'application/json');
+   xhr.onload= function(){
+
+    if(xhr.responseText == 'sucess'){
+      alert('Email send');
+      name.value='';
+      email.value='';
+      mobileNumber.value='';
+      message.value='';
+    }
+    else{
+      alert('Something went Weong');
+    }
+  }
+
+  xhr.send(JSON.stringify(formData))
+  })
