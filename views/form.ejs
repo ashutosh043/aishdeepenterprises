@@ -1,0 +1,60 @@
+
+
+<div class="modal modal-video fade p-" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content rounded-0 pb-5">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-5">
+                    <form class="form-contact" action="/mail" method="post">
+                        <h2 class="mb-4 text-center">Contact Us</h2>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control"  name="username" id="name" placeholder="Your Name" required>
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                    <label for="mail">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-floating">
+                                    <input type="number" maxlength="10" class="form-control" name="mobile" id="mobile" placeholder="Your Mobile" required>
+                                    <label for="mobile">Your Mobile</label>
+                                </div>
+                            </div>
+                             <!-- <div class="col-sm-6">
+                                <div class="form-floating">
+                                    <select class="form-select" id="service" >
+                                        <option name="select">Pathology Testing</option>
+                                        <option value="" >Microbiology Tests</option>
+                                        <option value="" >Biochemistry Tests</option>
+                                        <option value="" >Histopatology Tests</option>
+                                    </select>
+                                    <label for="service">Choose A Service</label>
+                                </div>
+                            </div>  -->
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" name="message" placeholder="Leave a message here" id="message"
+                                        style="height: 130px" required></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Submit Now</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
