@@ -45,6 +45,10 @@ app.get('/ria-vials',(_,res)=>{
   res.render(`ria-vials`)
 })
 
+app.get('/thankyou',(_,res)=>{
+  res.render(`thankyou`)
+})
+
 app.get('*',(_,res)=>{
     res.render(`404`)
 })
@@ -77,7 +81,9 @@ app.post("/mail", function(req, res){
     }
     else{
       console.log('Send Email' + info.response) ;
-      res.redirect('/')
+     
+      res.redirect('thankyou');
+
     }
 
    })
