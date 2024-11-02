@@ -27,6 +27,10 @@ app.get('/about',(_,res)=>{
 
 app.get('/blood-nonvacuum-vials',(_,res)=>{
   res.render(`blood-nonvacuum-vials`)
+});
+
+app.get('/multipurpose-vials',(_,res)=>{
+  res.render(`multipurpose-vials`)
 })
 
 app.get('/blood-vacuum-vials',(_,res)=>{
@@ -57,8 +61,9 @@ app.post("/mail", function(req, res){
    var name =req.body.username;
    var email =req.body.email;
    var mobile =req.body.mobile;
+   var selectOption= req.body.testing;
    var message = req.body.message;
-   var selectOption= req.body.select;
+  
 
    var transpoter = nodemailer.createTransport({
       service:'gmail',
